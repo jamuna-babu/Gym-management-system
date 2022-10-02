@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<style>
+    body{
+
+background-image: url(gymnn.jpg);
+background-repeat: no-repeat;
+ background-size: cover;
+font-family: Arial, Helvetica, sans-serif;
+font-size: large;
+align-items: center;
+text-align: center;
+}
+#block1{
+    margin-left: 500px;
+        margin-right: 400px;
+        
+        padding-right: 4px;
+        background-color: white;
+        border: 2px solid;
+        border-color: white;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-bottom: 100px;
+        padding-top: 50px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 17px;
+        text-align:left;
+
+}
+button {
+        background-color: #4caf50;
+        width: 20%;
+        color: orange;
+        font-size: 20px;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="text"],
+      input[type="password"]
+      input[type="submit"] {
+        width: 50%;
+        margin: 8px 0;
+        padding-top: 10px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+        
+      }
+      .ph {
+        width: 30%;
+        margin: 8px 0;
+       
+        padding-top: -8px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      #block2{
+padding: 20px 100px;
+}
+
+
+  .fields{
+    margin-left:-100px;
+  }
+  .links {
+        background-color: rgb(43,35,35);
+        border-radius: 0ex;
+      }
+      .link{
+        color: white;
+        margin-left: 1210px;
+        margin-top:-20px;
+      }
+
+
+</style>
+<script>
+    function validateform() {
+      var username = document.myform.username.value;
+      var password = document.myform.password.value;
+      var password2 = document.myform.password2.value;
+      alert(username);
+      
+
+      if (username == null || username == "") {
+        alert("UserName can't be blank");
+        return false;
+      } 
+      
+      if (password.length < 7) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+        if (password.length > 12) {
+        alert("Password must not be greater than 12 characters");
+        return false;
+        }
+
+        if(password != password2)
+        {
+          alert("Retype the same password");
+        return false;
+        
+        }
+    }
+    function form() {
+      alert("hello");
+      var username=document.forms["myform"]["username"].value;
+      //var username = document.myform.username.value;
+     
+      var password=document.forms["myform"]["password"].value;
+      var password2=document.forms["myform"]["password2"].value;
+      uid_re=/^[A-Za-z0-9_]{5,12}$/
+      pwd_re=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9_#@%\*\-]{8,24}$/
+      
+
+      if (username == null || username == "") {
+        alert("UserName can't be blank");
+        return false;
+      } 
+      
+      if (password.length < 7) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+        if (password.length > 12) {
+        alert("Password must not be greater than 12 characters");
+        return false;
+        }
+
+        if(password != password2)
+        {
+          alert("Retype the same password");
+        return false;
+        
+        }
+        if(!(uid_re.test(document.forms["myform"]["username"].value)))
+        {
+        alert("Please enter a valid user ID with letters, numbers and underscore and with length between 5 and 12");
+        return false;
+        }
+        if (!(pwd_re.test(document.rform.pwd.value)))
+    	alert("Please enter a valid password with atleast one capital letter, small letter , a number and special character with length between 7 and 12");
+         }
+    
+    
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js" >
+  </script>
+</head>
+
+<body>
+  <div class="links">
+    <br />
+    <a
+      href="location.html"
+      style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+      ;
+    >
+      LOCATIONS ACROSS TAMILNADU
+    </a>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+
+    <a
+      href="equp.html"
+      style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+      ;
+    >
+      LISTS OF EQUIPMENTS
+    </a>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    <a
+      href="gym_homepage.html"
+      style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+      ;
+    >
+      HOME PAGE
+    </a>
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    <a
+      href="gymcontentpage.html"
+      style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+      ;
+    >
+      ABOUT US
+    </a>
+
+    <br />
+    <br />
+  </div>
+<div id="block1">
+  <a href="cancel.html"  style="text-align:right;margin-left:230px">To cancel registered event or update phone</a>  
+<h3 style="background-color:black;color: floralwhite;text-align:center; ">Register for special events</h3><br>
+<div id="block2" ng-app="">
+  
+<p>Please enter your details {{name}}!!</p>
+<form id="myform" onsubmit="return form()" method ="post" action="http://localhost:3000/submit">
+  <div class="fields">
+<label for="name">Name:</label>
+<input type="text" id="name" ng-model="name"
+name="name" required><br>
+<div class="boxes">
+<label for="name">Username:</label>
+<input type="text" id="username" name="username"
+ng-model="username" required
+onkeyup="move(this,this.value)"> <br>
+<label for="password">password:</label>
+<input type="text" id="password" name="password"
+ng-model="password" required
+onkeyup="move(this,this.value)"><br>
+</div>
+<label for="password2">Retype password:</label>
+<input type="text" id="password2" name="password2"
+ng-model="password2"  required
+onkeyup="move(this,this.value)"> <br>
+<label for="password2">Phone number:</label>
+<input type="text" id="phno" name="phno"
+ng-model="phno" required
+onkeyup="move(this,this.value)"> <br>
+
+
+<br>
+</div>
+
+    <input type="submit" value="submit" style="position: relative">
+    </form>
+    </div>
+  
+    <h5 style="text-align:right;margin-left:50px;">Your registration will be only once payment done </h5>
+  <a href="payment.html" style="text-align:right;margin-left:300px;">Click here to proceed payment</a>
+    
+    </body>
+   
+</html>
+
+
+

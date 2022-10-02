@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Page</title>
+    <style>
+      Body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-image: url("loginimg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      button {
+        background-color: #4caf50;
+        width: 25%;
+        color: orange;
+        font-size: 20px;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 90%;
+        margin: 8px 0;
+       
+        padding-top: 10px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      .ph {
+        width: 30%;
+        margin: 8px 0;
+       
+        padding-top: -8px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      button:hover {
+        opacity: 0.7;
+      }
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+      }
+
+      .container {
+        margin-left: 500px;
+        margin-right: 400px;
+        
+        padding-right: 4px;
+        background-color: white;
+        border: 2px solid;
+        border-color: white;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-bottom: 100px;
+        padding-top: 50px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 17px;
+      }
+
+    .cb {
+       text-align: left;
+       margin-left: 100px;
+      }
+    </style>
+    <script>
+      function validateform() {
+        var username = document.myform.username.value;
+        var password = document.myform.password.value;
+        var password2 = document.myform.password2.value;
+        
+
+        if (username == null || username == "") {
+          alert("UserName can't be blank");
+          return false;
+        } 
+        
+        if (password.length < 7) {
+          alert("Password must be at least 6 characters long.");
+          return false;
+        }
+          if (password.length > 12) {
+          alert("Password must not be greater than 12 characters");
+          return false;
+          }
+
+          if(password != password2)
+          {
+            alert("Retype the same password");
+          return false;
+          
+          }
+      }
+    </script>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+    </script>
+    <script type="text/javascript">
+
+var app = angular.module('myapp',[]);
+
+app.controller('myctrl',function($scope){
+    $scope.IsVisible = false;
+
+    $scope.showhide = function(){
+        $scope.IsVisible = true;
+    }
+    $scope.showhidet= function(){
+        $scope.IsVisiblet = true;
+    }
+    });
+</script>
+
+  </head>
+  <body ng-app="myapp" ng-controller="myctrl">
+    <center><h1>special programs</h1></center>
+    <form
+      id="myform"
+      method="post"
+      action="https://localhost:3000/submit"
+      onsubmit="return validateform()"
+    >
+    <center><h2>Register</h2></center>
+      <div class="container">
+        <label>Name: </label> <br>
+        
+        <input type="text" placeholder="Enter name:" name="name" ng-model="name" required onkeyup="move(this,this.value)">
+      </br>
+        <label>Username : </label> <br>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          ng-model="username" onkeyup="move(this,this.value)"
+          required
+        /><br />
+        <label>Password : </label>  <br>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          ng-model="password" onkeyup="move(this,this.value)"
+          required
+        /><br />
+        <label>Retype password : </label>   <br>
+        <input
+          type="password"
+          placeholder="Retype Password"
+          name="password2"
+          ng-model="password2" onkeyup="move(this,this.value)"
+          required
+        /><br />
+</br>
+    </br>
+    <label>Contact Number:</label>  
+    <div class="ph">
+     <input type="tel" name="phno" ng-model="phno"  onkeyup="move(this,this.value)" required> 
+    </div>
+    <br>
+
+        <input type="submit" value="submit" style="text-align:center">Register</button> <br />
+        </div>
+
+</form>
+<form method="post" action="http://localhost:3000/delete">
+  <center><h2>Cancel Registration</h2></center>
+  <input type="button" value="Cancel registration" ng-click="showhide()"/>
+  <div class="container" ng-click="showhide()">
+     
+      <br><br>
+      <div ng-show = "IsVisible"  ng-click="showhide()">
+<label for="delname">Enter Name to delete:</label>
+<input type="text" id="delname" ng-model="delname"name="delname"><br>
+<input type="submit" value="Delete">
+</div>
+</div>
+</form>
+<br>
+<form method="post" action="http://localhost:3000/update">
+  <center><h2 >Update username</h2></center>
+<input type="button" value="Update username" ng-click="showhidet()"/>
+<div class="container" ng-click="showhidet()">
+<div ng-show="IsVisiblet" ng-click="showhide()">
+<label for="oldname">Old Name:</label>
+<input type="text" id="oldname" ng-model="oldname" name="oldname" maxlength="10"><br>
+<label for="newname">New Name:</label>
+<input type="text" id="newname" ng-model="newname"
+name="newname"><br>
+<input type="submit" value="Update">
+</div>
+</div>
+</form>
+<br>
+<form method="get" action="http://localhost:3000/all">
+<input type="submit" value="View all Transactions">
+</form>
+<form id="cancel" method="post" action="https://localhost:3000/delete">
+    <center><h2>Cancel Registration</h2></center>
+    <div class="container" ng-click="showhide()">
+        <input type="button" value="Cancel registration" ng-click="showhide()"/>
+        <br><br><div ng-show = "IsVisible">
+        <label>Enter the username to cancel registration:</label>
+        <input name="delname" ng-model="delname">
+        <input type="submit" value="Delete">
+        </div>
+    </div>
+</form>
+<form id="Update" method="post" action="https://localhost:3000/update">
+     <center><h2 >Update username</h2></center>
+     <input type="button" value="Update username" ng-click="showhidet()"/>
+    <div class="container" ng-click="showhidet()">
+        <div ng-show="IsVisiblet">
+        <label>Old username:</label>
+        <input id="oldname" name="oldname" ng-model="oldname">
+        <input id="newname" name="newname" ng-model="newname">
+        <input type="submit" value="Update">
+    </div>
+    </div>
+</form>
+   
+
+  </body>
+</html>

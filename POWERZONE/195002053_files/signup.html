@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register Page</title>
+    <style>
+      Body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-image: url("loginimg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      button {
+        background-color: #4caf50;
+        width: 25%;
+        color: orange;
+        font-size: 20px;
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 90%;
+        margin: 8px 0;
+       
+        padding-top: 10px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      .ph {
+        width: 30%;
+        margin: 8px 0;
+       
+        padding-top: -8px;
+        display: inline-block;
+        border: 1px solid green;
+        box-sizing: border-box;
+      }
+      button:hover {
+        opacity: 0.7;
+      }
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+      }
+
+      .container {
+        margin-left: 500px;
+        margin-right: 400px;
+        
+        padding-right: 4px;
+        background-color: white;
+        border: 2px solid;
+        border-color: white;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-bottom: 100px;
+        padding-top: 50px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: 17px;
+      }
+
+    .cb {
+       text-align: left;
+       margin-left: 100px;
+      }
+    </style>
+    <script>
+      function validateform() {
+        var username = document.myform.username.value;
+        var password = document.myform.password.value;
+        var password2 = document.myform.password2.value;
+
+        if (username == null || username == "") {
+          alert("UserName can't be blank");
+          return false;
+        } 
+        
+        if (password.length < 7) {
+          alert("Password must be at least 6 characters long.");
+          return false;
+        }
+          if (password.length > 12) {
+          alert("Password must not be greater than 12 characters");
+          return false;
+          }
+
+          if(password != password2)
+          {
+            alert("Retype the same password");
+          return false;
+          
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <center><h1>Register</h1></center>
+    <form
+      name="myform"
+      method="post"
+      action="abc.jsp"
+      onsubmit="return validateform()"
+    >
+      <div class="container">
+        <label>Name: </label> <br>
+        
+        <input type="text" placeholder="Enter name:" name="name" required>
+      </br>
+        <label>Username : </label> <br>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          required
+        /><br />
+        <label>Password : </label>  <br>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        /><br />
+        <label>Retype password : </label>   <br>
+        <input
+          type="password"
+          placeholder="Retype Password"
+          name="password2"
+          required
+        /><br />
+        <label>Gender : </label>    <br>
+        <input type="radio" name="gender" required> male
+        <input type="radio" name="gender" required> Female
+        <input type="radio" name="gender" required> others
+      </br>
+    </br>
+ 
+      <label>Convenient Timing:</label>
+    <br>
+    <div class="cb">
+    
+     <input type="checkbox" name="gender"> [04 A.M - 12 P.M]
+    </br>
+    <input type="checkbox" name="gender"> [12 P.M - 04 P.M] 
+</br>
+    
+    <input type="checkbox" name="gender">[04 P.M - 09 P.M]  
+  </br>
+</div>
+</br>
+    </br>
+    <label>Contact Number:</label>  
+    <div class="ph">
+    <input type="tel" name="phno" required> 
+    </div>
+    <br>
+
+        <button type="submit" style="text-align=center">Register</button> <br />
+        <input type="checkbox" checked="checked" /> Remember me
+        <button type="button" class="cancelbtn">Cancel</button> <br />
+        Forgot <a href="#"> password? </a>
+        <br />
+        Already have an account
+        <a href="signup.html"> sign-up </a>
+      </div>
+    </form>
+  </body>
+</html>

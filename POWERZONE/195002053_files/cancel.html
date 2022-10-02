@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    Cancellation
+  </head>
+  <style>
+    body {
+      background-image: url(gymnn.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      align-items: center;
+      text-align: center;
+    }
+    #block1 {
+      margin-left: 500px;
+      margin-right: 400px;
+
+      padding-right: 4px;
+      background-color: white;
+      border: 2px solid;
+      border-color: white;
+      border-radius: 10px;
+      padding-left: 20px;
+      padding-bottom: 100px;
+      padding-top: 50px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-weight: bold;
+      font-size: 17px;
+    }
+    button {
+      background-color: #4caf50;
+      width: 20%;
+      color: orange;
+      font-size: 20px;
+      padding: 15px;
+      margin: 10px 0px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 20%;
+      margin: 8px 0;
+      padding-top: 10px;
+      display: inline-block;
+      border: 1px solid green;
+      box-sizing: border-box;
+    }
+    .ph {
+      width: 30%;
+      margin: 8px 0;
+
+      padding-top: -8px;
+      display: inline-block;
+      border: 1px solid green;
+      box-sizing: border-box;
+    }
+    #block2 {
+      padding: 5px 100px;
+    }
+    label {
+      text-align: left;
+      margin-left: -100px;
+    }
+  </style>
+</html>
+<body>
+  <div id="block1">
+    <form method="post" action="http://localhost:3000/delete">
+      <h1 style="text-align: center">Cancellation</h1>
+      <label for="delname">Enter Name to delete:</label>
+      <input type="text" id="delname" ng-model="delname" name="delname" /><br />
+      <input type="submit" value="Delete" />
+    </form>
+  </div>
+  <br />
+  <div id="block1">
+    <form method="post" action="http://localhost:3000/update">
+      <h1 style="text-align: center">Updation</h1>
+      <label for="oldname">Old Name:</label>
+      <input type="text" id="oldname" ng-model="oldname" name="oldname" /><br />
+      <label for="newname">New Name:</label>
+      <input type="text" id="newname" ng-model="newname" name="newname" /><br />
+      <input type="submit" value="Update" />
+    </form>
+  </div>
+</body>

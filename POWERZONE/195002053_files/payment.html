@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Gateway</title>
+<meta charset="UTF-8">
+<meta name="description" content="Payment Gateway">
+<meta name="keywords" conent="Payment, Gateway, Debit Card, Credit
+Card">
+</head>
+<style>
+body{
+
+background-image: url(gymnn.jpg);
+background-repeat:no-repeat;
+background-size:cover;
+font-family: Arial, Helvetica, sans-serif;
+font-size: large;
+align-items: center;
+text-align: center;
+margin-left:350px;
+margin-top:150px;
+}
+#block1{
+    background-color: white;
+margin-left:200px;
+margin-right:400px;
+text-align:left;
+width: 700px;
+border: 15px #3a0d0d;
+padding: 20px;
+margin: 10px;
+}
+#block2{
+padding: 5px 100px;
+}
+</style>
+<body>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"
+>
+</script>
+<div id="block1">
+<h3 style="background-color:black;color: floralwhite;text-align:center; ">Payment Details</h3><br>
+<div id="block2" ng-app="">
+<p>Please enter your details {{name}}!!</p>
+<form id="payment" onsubmit="return validateForm()" method ="post" action="http://localhost:3000/submit">
+<label for="name">Name:</label>
+<input type="text" id="name" ng-model="name"
+name="name"><br>
+<div class="boxes">
+<label for="cardno1">Card Number:</label>
+<input type="text" id="cardno1" name="cardno1"
+ng-model="cardno1" tabindex="1" class="card1" maxlength="4" size="4"
+onkeyup="move(this,this.value)">
+<input type="text" id="cardno2" name="cardno2"
+ng-model="cardno2" tabindex="2" class="card2" maxlength="4" size="4"
+onkeyup="move(this,this.value)">
+<input type="text" id="cardno3" name="cardno3"
+ng-model="cardno3" tabindex="3" class="card3" maxlength="4" size="4"
+onkeyup="move(this,this.value)">
+<input type="text" id="cardno4" name="cardno4"
+ng-model="cardno4" tabindex="4" class="card4" maxlength="4" size="4"
+onkeyup="move(this,this.value)">
+<br>
+</div>
+<div class="form-group" id="exp-date">
+    <label for="expdate">Expiry Date:</label>
+    <select class="month" name="month_id" id="month_id"
+    ng-model="month_id">
+    </select>
+    <select class="year" name="year_id" id="year_id"
+    ng-model="year_id">
+    <option value="2021"> 2021</option>
+    </select>
+    </div>
+    <label for="cvv">CVV/CVC:</label>
+    <input type="tel" name="cvv" id="cvv" ng-model="cvv"
+    maxlength="3" size="3">
+    <br><br>
+    <img src="logos2.png" align="center" usemap="#workmap"
+    width="180" height="60"><br><br>
+    <input type="submit" value="Submit" style="position:
+    relative">
+    </form>
+    </div>
+    
+    </body>
+    <script >
+    //Using DOM to add months and years
+    var yr=2021;
+    var year = document.getElementById("year_id");
+    var month = document.querySelector(".month");
+    for(let i=1;i<=12;i++)
+    {
+    let doc= document.createElement("option");
+    doc.text=i;
+    month.add(doc);
+    }
+    for(let i=1;i<=5;i++)
+{
+let doc= document.createElement("option");
+doc.text=yr+i;
+year.add(doc);
+}
+//Validating
+function validateForm()
+{
+var cardno1 = document.forms["payment"]["cardno1"].value;
+var cardno2 = document.forms["payment"]["cardno2"].value;
+var cardno3 = document.forms["payment"]["cardno3"].value;
+var cardno4 = document.forms["payment"]["cardno4"].value;
+var cardno= cardno1+cardno2+cardno3+cardno4;
+var uname = document.forms["payment"]["name"].value;
+var cvv = document.forms["payment"]["cvv"].value;
+var yr_chosen = document.forms["payment"]["year_id"].value;
+var flag=1;
+if(uname=="" || cardno=="" || cvv=="" )
+{
+window.alert("None of the fields can be empty!!");return
+false;
+}
+else
+{
+//var cardno_test = new RegExp("^\\d{16}");
+var cvv_test = new RegExp("^\\d{3}");
+var name_test = new RegExp("^[a-zA-Z. ]*$");
+var masterCard = new
+RegExp("^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$");
+var visa = new RegExp("^4[0-9]{12}(?:[0-9]{3})?$");
+var rupay = new RegExp("^6[0-9]{15}$");
+if (!name_test.test(uname))
+{
+alert("Invalid Name Field");flag=0;
+}
+if (!masterCard.test(cardno) && !visa.test(cardno) &&
+!rupay.test(cardno))
+{
+window.alert("Invalid Card No.");
+flag=0;
+
+if (!cvv_test.test(cvv))
+{
+alert("Invalid CVV");flag=0;
+}
+//alert(yr_chosen);
+if(yr_chosen=="2021")
+{
+var d = new Date();
+var n = d.getMonth();n++;
+var mon_chosen =
+document.forms["payment"]["month_id"].value;
+if(mon_chosen<n)
+{
+alert("Invalid Expiry Date");flag=0;
+}
+}
+if(flag==1)
+{
+alert("Successful Submission!!");
+return true;
+}
+return false;
+}
+}
+}
+function move(x,y)
+{
+if(y.length==x.maxLength)
+{
+let next = x.tabIndex;
+if(next==1)
+{
+var cardno1 = document.forms["payment"]["cardno1"].value;
+var rupay_4 = new RegExp("^6[0-9]{3}$");
+var visa_4 = new RegExp("^4[0-9]{3}$");
+var master_4 = new RegExp("^5[1-5][0-9]{2}");
+if (!visa_4.test(cardno1) && !rupay_4.test(cardno1) &&
+!master_4.test(cardno1))
+{
+window.alert("Invalid Card No.!!");
+}
+else
+{
+console.log(document.querySelector(".boxes").childElementCount);
+if(next<document.querySelector(".boxes").childElementCount)
+{
+document.querySelector(".card" +
+(next+1)).focus();
+}
+}
+}
+else
+{
+console.log(document.querySelector(".boxes").childElementCount);
+if(next<document.querySelector(".boxes").childElementCount)
+{
+document.querySelector(".card" + (next+1)).focus();
+}
+}
+}
+}
+</script>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .about {
+        background-color: white;
+      }
+
+      .links {
+        background-color: rgb(43, 35, 35);
+        border-radius: 0ex;
+      }
+      .tab {
+        background-color: rgb(43, 35, 35);
+        border-radius: 0ex;
+        color: white;
+      }
+      .tabcontent {
+        color: black;
+        font-size: 20px;
+      }
+      .ng-hide {
+        opacity: 0;
+      }
+    </style>
+
+    <script>
+      function opentab(evt, content) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(content).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="links">
+      <br />
+      <a
+        href="location.html"
+        style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+        ;
+      >
+        LOCATIONS ACROSS TAMILNADU
+      </a>
+      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+
+      <a
+        href="equp.html"
+        style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+        ;
+      >
+        LISTS OF EQUIPMENTS
+      </a>
+      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+      <a
+        href="gym_homepage.html"
+        style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+        ;
+      >
+        HOME PAGE
+      </a>
+      &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+      <a
+        href="login.html"
+        style="margin-left: 2%; margin-top: -3%; color: rgb(193, 216, 66)"
+        ;
+      >
+        LOGIN
+      </a>
+
+      <br />
+      <br />
+    </div>
+
+    <div class="tab">
+      <button class="tablinks" onclick="opentab(event,'about')">
+        ABOUT US
+      </button>
+      <button class="tablinks" onclick="opentab(event,'why')">WHY US</button>
+    </div>
+
+    <div id="about" class="tabcontent">
+      <p>
+        <br />
+        <br />
+        Powerzone Gym Was The Place For Serious Fitness. Opened Long Before The
+        Modern-Day Health Club Existed, The Original Gold's Gym Featured
+        Homemade Equipment And A Dedication To Getting Results. It Was An
+        Instant Hit. Powerzone Has Expanded Its Fitness Profile To Offer All Of
+        The Latest Equipment And Services, Including Group Exercise, Personal
+        Training, Cardiovascular Equipment, Spinning, And Yoga, While
+        Maintaining Its Core Weight Lifting Tradition. Powerzone Has Become The
+        Preferred Gym Of Celebrities, Athletes, Bodybuilders, The Military, And
+        Fitness Enthusiasts all over tamilnadu. Most Importantly, Gold's Gym
+        Continues To Change Lives By Helping People Achieve Their Individual
+        Potential.
+      </p>
+    </div>
+
+    <div id="why" class="tabcontent">
+      <h1>Why us?</h1>
+      Known For The Unrivaled Success Of Providing State-Of-The-Art Equipment
+      And Fitness Knowledge With A Globally Proven Fitness Training Module And
+      With Certified Trainers And Nutritional Counseling We Have Had A
+      Comprehensive Approach To The Overall Health And Wellbeing Of The Members.
+      At Gold’s Gym, It’s Not Only About Working Out But Having A Healthy
+      Lifestyle We Have Also Been Doing A Lot Of Corporate & Community Wellness
+      Programs, Reaching Out To People Who Want To Get Fitter But Cannot Make It
+      To The Gym. We Have Focused On The Overall Experience. It Is Not Just
+      About Getting Into A Particular Shape But It’s All About FITNESS, A
+      Healthy Lifestyle, And, A Complete Transformation. We Feel Proud And Glad
+      To Say That With The Support Of powerzone Gym International, Our Members,
+      Employees, Vendor Partners & Franchisee Partners The Brand Has Grown Leaps
+      And Bounds And Has Been Able To Contribute To The Betterment Of The
+      Nation. We Are Working Towards #MakingIndiaFit And We Are Hopeful Of
+      Spreading Fitness Awareness To As Many People As Possible
+    </div>
+  </body>
+</html>
